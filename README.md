@@ -6,6 +6,9 @@
 - [ ] express [4.16.0]()
 - [ ] express-generator
 - [ ] mongoose [5.1.3]()
+- [ ] express-session [1.15.6]()
+- [ ] joi [13.3.0]()
+- [ ] nodemon
 - [ ] postman
 
 ## 待完善

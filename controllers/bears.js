@@ -1,8 +1,14 @@
 'use strict';
 
+const Joi = require('Joi');
 const Bear = require('../models/bear');
+const utils = require('../utils');
 
 exports.list_all_tasks = function(req, res) {
+    // if (req.session.key) {
+    //
+    // }
+    console.log(req.session);
     Bear.find((err, bears) => {
         if (err) {
             res.send(err);
@@ -13,6 +19,16 @@ exports.list_all_tasks = function(req, res) {
 
 exports.create_new_tasks = function(req, res) {
     const bear = new Bear();
+
+    const schema = Joi.object().keys({
+        name: Joi.string().min(5).max(30).required(),
+    });
+    const result = Joi.validate(req.body, schema);
+    if (result.error) {
+        res.status(400).send(result.error.details[0].message);
+        return;
+    }
+
     bear.name = req.body.name;
 
     bear.save((err) => {
