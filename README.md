@@ -59,7 +59,11 @@ DELETE http://localhost:3000/api/bears/bears/:bear_id
 
 ```shell
 # 启动数据库 data
+# window
 ./mongod --dbpath=./data
+
+# mac
+mongod --dbpath data/db
 
 # 链接数据库 (shell 操作数据库)
 ./bin/mongo

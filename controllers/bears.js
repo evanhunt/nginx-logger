@@ -5,10 +5,6 @@ const Bear = require('../models/bear');
 const utils = require('../utils');
 
 exports.list_all_tasks = function(req, res) {
-    // if (req.session.key) {
-    //
-    // }
-    console.log(req.session);
     Bear.find((err, bears) => {
         if (err) {
             res.send(err);
